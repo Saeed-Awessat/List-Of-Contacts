@@ -1,0 +1,27 @@
+{
+  "name": "list-of-contacts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Saeed-Awessat/List-Of-Contacts.git"
+  },
+  "author": "Saeed-Awessat",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Saeed-Awessat/List-Of-Contacts/issues"
+  },
+  "homepage": "https://github.com/Saeed-Awessat/List-Of-Contacts#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "http": "^0.0.1-security",
+    "mongoose": "^5.13.7",
+    "react-toastify": "^7.0.4"
+  }
+}
