@@ -2,15 +2,16 @@ import React from "react";
 import {connect} from 'react-redux';
 
 const ShowList = (props) => {
-
     const renderTableHeader = () => {
         let header = Object.keys(props.users[0]);
-        return header.map((key, index) => {
+        let headerTr =  header.map((key, index) => {
             if (key !== '_id' && key !== '__v') return <th key={index}>{key}</th>
-        })
+        });
+        return [<th key={0}></th>,...headerTr];
     };
 
     const renderTableData = () => {
+        let count = 1;
         return props.users.map((user, index) => {
             const {_id, FirstName, LastName, Email, Img} = user; //destructuring
             return (
@@ -20,6 +21,7 @@ const ShowList = (props) => {
                         selectUser: user
                     });
                 }}>
+                    <td>{count++}</td>
                     <td>{FirstName}</td>
                     <td>{LastName}</td>
                     <td>{Email}</td>

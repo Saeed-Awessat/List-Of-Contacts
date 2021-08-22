@@ -12,7 +12,8 @@ function responseErrorToClient(res, error, aStatus) {
 }
 
 function getUsers(req, res) {
-    UserDetails.find({}).sort('-date').limit(10).exec(function (err, users) {
+    UserDetails.find({}).sort({ _id: -1 }).limit(10).exec(function (err, users) {
+        console.log('users:- ',users.length);
         if(err){
             responseErrorToClient(res,err);
         }

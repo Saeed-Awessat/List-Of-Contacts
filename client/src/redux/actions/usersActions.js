@@ -1,5 +1,6 @@
 import * as types from "./actionTypes";
 import * as usersApi from "../../api/usersApi";
+const usersMaxLength = 10;
 
 
 export function loadUsers() {
@@ -9,7 +10,7 @@ export function loadUsers() {
             .then(users => {
                 dispatch({
                     type: types.LOAD_USERS,
-                    payload: users,
+                    payload: users.reverse(),
                 });
             })
             .catch(emptyState => {
@@ -26,6 +27,8 @@ export function loadUsers() {
 export function updateUsers(users,newUser) {
     let newUsers = [...users];
     if(newUser)newUsers = [...newUsers,newUser];
+    if(newUsers.length > usersMaxLength)newUsers = newUsers.splice(-usersMaxLength);
+    console.log({newUsers});
     return {
         type: types.UPDATE_USERS,
         payload: newUsers,
