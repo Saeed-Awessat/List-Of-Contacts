@@ -40,9 +40,11 @@ const LoginPage = (props) => {
                 Email: loginState.fields["email"],
                 Img: loginState.fields["img"],
             };
+            props.setLoader(true);
             await addUser(user).then(newUser=>{
                 props.updateUsers(props.users,newUser);
                 notify('Login Success!','success');
+                props.setLoader(false);
                 navigateTo();
                 // let fields = {};
                 // fields["firstName"] = "";
@@ -52,6 +54,7 @@ const LoginPage = (props) => {
             }).catch(err=>{
                 notify('Failed to Login!');
                 props.updateUsers(props.users);
+                props.setLoader(false);
             });
         }
 

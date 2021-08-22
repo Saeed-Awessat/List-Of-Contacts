@@ -22,7 +22,7 @@ function App(props) {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/users" component={HomePage} />
-          <Route path="/login" component={LoginPage} />
+          <Route path="/login" component={()=><LoginPage setLoader={setLoader}/>} />
           <Route component={PageNotFound} />
         </Switch>
           <ToastContainer
